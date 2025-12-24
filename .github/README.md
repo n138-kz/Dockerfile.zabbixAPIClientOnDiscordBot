@@ -59,7 +59,7 @@
 curl \
   -s \
   --request POST \
-  --url 'http://172.21.83.191/zabbix/api_jsonrpc.php' \
+  --url 'http://127.0.0.1//zabbix/api_jsonrpc.php' \
   --header 'Content-Type: application/json-rpc' \
   --data '{"jsonrpc":"2.0","method":"user.login","params":{"user":"Admin","password":"n138admin"},"id":1}' \
   --insecure | jq -r .result
@@ -68,7 +68,7 @@ curl \
 #### 実行結果サンプル
 
 ```sh
-root@7e17ef2b2656:/home/admin# curl -s --request POST --url 'http://172.21.83.191/zabbix/api_jsonrpc.php' --header 'Content-Type: application/json-rpc' --data '{"jsonrpc":"2.0","method":"user.login","params":{"user":"Admin","password":"n138admin"},"id":1}' --insecure | jq -r .result
+root@7e17ef2b2656:/home/admin# curl -s --request POST --url 'http://127.0.0.1//zabbix/api_jsonrpc.php' --header 'Content-Type: application/json-rpc' --data '{"jsonrpc":"2.0","method":"user.login","params":{"user":"Admin","password":"n138admin"},"id":1}' --insecure | jq -r .result
 1c53e157df74e42191916e1d6c9e47ea
 root@7e17ef2b2656:/home/admin#
 ```
