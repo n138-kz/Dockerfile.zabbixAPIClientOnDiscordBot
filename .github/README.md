@@ -49,3 +49,204 @@
 ## License
 
 [Copyright (c) 2025 Yuu Komiya (n138), Under MIT License](LICENSE)  
+
+## memo
+
+### API version
+
+#### コマンド
+
+```sh
+curl \
+  -s \
+  --request POST \
+  --url 'http://'${host}'/zabbix/api_jsonrpc.php' \
+  --header 'Content-Type: application/json-rpc' \
+  --data '{"jsonrpc":"2.0","method":"apiinfo.version","params":{},"id":1}' | jq
+```
+
+#### 実行結果サンプル
+
+<details>
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": "5.0.47",
+  "id": 1
+}
+```
+
+</details>
+
+### トークン発行
+
+#### コマンド
+
+```sh
+curl \
+  -s \
+  --request POST \
+  --url 'http://'${host}'/zabbix/api_jsonrpc.php' \
+  --header 'Content-Type: application/json-rpc' \
+  --data '{"jsonrpc":"2.0","method":"user.login","params":{"user":"Admin","password":"zabbix"},"id":1}' \
+  --insecure | jq -r .result
+```
+
+#### 実行結果サンプル / フィルタ無し
+
+<details>
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": "2742f24013cfe6b532537df94422357b",
+  "id": 1
+}
+```
+
+</details>
+
+### 登録ホスト一覧
+
+#### コマンド
+
+```sh
+curl \
+  -s \
+  --request POST \
+  --url 'http://'${host}'/zabbix/api_jsonrpc.php' \
+  --header 'Content-Type: application/json-rpc' \
+  --data '{
+    "auth": "2742f24013cfe6b532537df94422357b",
+    "method": "host.get",
+    "id": 1,
+    "params": {
+        "output": "extend"
+    },
+    "jsonrpc": "2.0"
+}' | jq
+```
+
+#### 実行結果サンプル
+
+<details>
+
+```json
+
+{
+  "jsonrpc": "2.0",
+  "result": [
+    {
+      "hostid": "10000",
+      "proxy_hostid": "0",
+      "host": "localhost",
+      "status": "0",
+      "disable_until": "0",
+      "error": "",
+      "available": "1",
+      "errors_from": "0",
+      "lastaccess": "0",
+      "ipmi_authtype": "-1",
+      "ipmi_privilege": "2",
+      "ipmi_username": "",
+      "ipmi_password": "",
+      "ipmi_disable_until": "0",
+      "ipmi_available": "0",
+      "snmp_disable_until": "0",
+      "snmp_available": "1",
+      "maintenanceid": "0",
+      "maintenance_status": "0",
+      "maintenance_type": "0",
+      "maintenance_from": "0",
+      "ipmi_errors_from": "0",
+      "snmp_errors_from": "0",
+      "ipmi_error": "",
+      "snmp_error": "",
+      "jmx_disable_until": "0",
+      "jmx_available": "0",
+      "jmx_errors_from": "0",
+      "jmx_error": "",
+      "name": "localhost",
+      "flags": "0",
+      "templateid": "0",
+      "description": "",
+      "tls_connect": "1",
+      "tls_accept": "1",
+      "tls_issuer": "",
+      "tls_subject": "",
+      "tls_psk_identity": "",
+      "tls_psk": "",
+      "proxy_address": "",
+      "auto_compress": "1",
+      "inventory_mode": "-1"
+    }
+  ],
+  "id": 1
+}
+```
+
+</details>
+
+### 障害一覧
+
+https://www.zabbix.com/documentation/current/jp/manual/api/reference/problem/get
+
+#### コマンド
+
+```sh
+curl \
+  -s \
+  --request POST\
+  --url 'http://'${host}'/zabbix/api_jsonrpc.php'\
+  --header 'Content-Type: application/json-rpc'\
+  --data '{
+    "auth": "2742f24013cfe6b532537df94422357b",
+    "method": "problem.get",
+    "id": 1,
+    "params": {
+        "output": "extend"
+    },
+    "suppressed": true,
+    "sortfield": ["clock"],
+    "sortorder": "DESC",
+    "jsonrpc": "2.0"
+  }' | jq
+```
+
+#### 実行結果サンプル
+
+<details>
+
+※**発生中障害のみを表示させる方法模索中**
+
+```json
+
+{
+  "jsonrpc": "2.0",
+  "result": [
+    {
+      "eventid": "1085452",
+      "source": "0",
+      "object": "0",
+      "objectid": "23398",
+      "clock": "1683104975",
+      "ns": "408960186",
+      "r_eventid": "0",
+      "r_clock": "0",
+      "r_ns": "0",
+      "correlationid": "0",
+      "userid": "0",
+      "name": "Disk-131072: Disk space is low (used > 80%)",
+      "acknowledged": "1",
+      "severity": "1",
+      "opdata": "Space used: *UNKNOWN* of *UNKNOWN* (*UNKNOWN*)",
+      "suppressed": "0",
+      "urls": []
+    }
+  ],
+  "id": 1
+}
+```
+
+</details>
