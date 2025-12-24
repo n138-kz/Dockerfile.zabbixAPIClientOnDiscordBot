@@ -76,7 +76,7 @@ root@7e17ef2b2656:/home/admin# curl -s --request POST --url 'http://127.0.0.1//z
         "password":"zabbix"
     },"id":1
 }' --insecure | jq -r .result
-1c53e157df74e42191916e1d6c9e47ea
+2742f24013cfe6b532537df94422357b
 root@7e17ef2b2656:/home/admin#
 ```
 
@@ -94,12 +94,12 @@ root@7e17ef2b2656:/home/admin#
 
 ```sh
 curl -s -k -d '{
-    "auth": "8e52411cb6d233020a7ca37703f89a95",
+    "auth": "2742f24013cfe6b532537df94422357b",
     "method": "host.get",
     "id": 1,
     "params": {
         "output": "extend"
     },
     "jsonrpc": "2.0"
-}' -H "Content-Type: application/json-rpc" http://172.21.83.191/zabbix/api_jsonrpc.php | jq
+}' -H "Content-Type: application/json-rpc" http://127.0.0.1/zabbix/api_jsonrpc.php | jq
 ```
