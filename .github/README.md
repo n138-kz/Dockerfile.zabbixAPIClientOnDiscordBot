@@ -52,9 +52,33 @@
 
 ## memo
 
+### API version
+
+#### コマンド
+
+```sh
+curl \
+  -s \
+  --request POST \
+  --url 'http://127.0.0.1/zabbix/api_jsonrpc.php' \
+  --header 'Content-Type: application/json-rpc' \
+  --data '{"jsonrpc":"2.0","method":"apiinfo.version","params":{},"id":1}' | jq
+```
+
+#### 実行結果サンプル
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": "5.0.47",
+  "id": 1
+}
+```
+
 ### トークン発行
 
 #### コマンド
+
 ```sh
 curl \
   -s \
