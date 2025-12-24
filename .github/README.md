@@ -219,6 +219,32 @@ curl \
 <details>
 
 ```json
+
+{
+  "jsonrpc": "2.0",
+  "result": [
+    {
+      "eventid": "1085452",
+      "source": "0",
+      "object": "0",
+      "objectid": "23398",
+      "clock": "1683104975",
+      "ns": "408960186",
+      "r_eventid": "0",
+      "r_clock": "0",
+      "r_ns": "0",
+      "correlationid": "0",
+      "userid": "0",
+      "name": "Disk-131072: Disk space is low (used > 80%)",
+      "acknowledged": "1",
+      "severity": "1",
+      "opdata": "Space used: *UNKNOWN* of *UNKNOWN* (*UNKNOWN*)",
+      "suppressed": "0",
+      "urls": []
+    }
+  ],
+  "id": 1
+}
 ```
 
 </details>
