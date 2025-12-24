@@ -65,6 +65,8 @@ curl \
   --data '{"jsonrpc":"2.0","method":"apiinfo.version","params":{},"id":1}' | jq
 ```
 
+<details>
+
 #### 実行結果サンプル
 
 ```json
@@ -74,6 +76,8 @@ curl \
   "id": 1
 }
 ```
+
+</details>
 
 ### トークン発行
 
