@@ -49,3 +49,36 @@
 ## License
 
 [Copyright (c) 2025 Yuu Komiya (n138), Under MIT License](LICENSE)  
+
+## memo
+
+### トークン発行
+
+#### コマンド
+```sh
+curl \
+  -s \
+  --request POST \
+  --url 'http://172.21.83.191/zabbix/api_jsonrpc.php' \
+  --header 'Content-Type: application/json-rpc' \
+  --data '{"jsonrpc":"2.0","method":"user.login","params":{"user":"Admin","password":"n138admin"},"id":1}' \
+  --insecure | jq -r .result
+```
+
+#### 実行結果サンプル
+
+```sh
+root@7e17ef2b2656:/home/admin# curl -s --request POST --url 'http://172.21.83.191/zabbix/api_jsonrpc.php' --header 'Content-Type: application/json-rpc' --data '{"jsonrpc":"2.0","method":"user.login","params":{"user":"Admin","password":"n138admin"},"id":1}' --insecure | jq -r .result
+1c53e157df74e42191916e1d6c9e47ea
+root@7e17ef2b2656:/home/admin#
+```
+
+#### フィルタ無し
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": "2742f24013cfe6b532537df94422357b",
+  "id": 1
+}
+```
