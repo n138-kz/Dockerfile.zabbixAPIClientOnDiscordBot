@@ -82,3 +82,18 @@ root@7e17ef2b2656:/home/admin#
   "id": 1
 }
 ```
+
+### 登録ホスト一覧
+
+```sh
+curl -s -k -d '
+{
+    "auth": "8e52411cb6d233020a7ca37703f89a95",
+    "method": "host.get",
+    "id": 1,
+    "params": {
+        "output": "extend"
+    },
+    "jsonrpc": "2.0"
+}' -H "Content-Type: application/json-rpc" http://172.21.83.191/zabbix/api_jsonrpc.php | jq
+```
