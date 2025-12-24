@@ -65,9 +65,9 @@ curl \
   --data '{"jsonrpc":"2.0","method":"apiinfo.version","params":{},"id":1}' | jq
 ```
 
-<details>
-
 #### 実行結果サンプル
+
+<details>
 
 ```json
 {
@@ -95,6 +95,8 @@ curl \
 
 #### 実行結果サンプル / フィルタ無し
 
+<details>
+
 ```json
 {
   "jsonrpc": "2.0",
@@ -102,6 +104,8 @@ curl \
   "id": 1
 }
 ```
+
+</details>
 
 ### 登録ホスト一覧
 
@@ -125,6 +129,8 @@ curl \
 ```
 
 #### 実行結果サンプル
+
+<details>
 
 ```json
 {
@@ -172,3 +178,5 @@ curl \
   "inventory_mode": "-1"
 }
 ```
+
+</details>
