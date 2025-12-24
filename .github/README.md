@@ -167,7 +167,7 @@ curl \
       "jmx_available": "0",
       "jmx_errors_from": "0",
       "jmx_error": "",
-      "name": "nbs02",
+      "name": "localhost",
       "flags": "0",
       "templateid": "0",
       "description": "",
