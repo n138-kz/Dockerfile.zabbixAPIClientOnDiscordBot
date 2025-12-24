@@ -202,15 +202,16 @@ curl \
   --header 'Content-Type: application/json-rpc'\
   --data '{
     "auth": "2742f24013cfe6b532537df94422357b",
-    "method": "event.get",
+    "method": "problem.get",
     "id": 1,
     "params": {
         "output": "extend"
     },
+    "suppressed": true,
     "sortfield": ["clock"],
     "sortorder": "DESC",
     "jsonrpc": "2.0"
-  }' | jq .result[0]
+  }' | jq
 ```
 
 #### 実行結果サンプル
