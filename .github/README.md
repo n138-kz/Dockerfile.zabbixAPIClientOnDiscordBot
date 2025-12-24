@@ -1,6 +1,6 @@
 # [Dockerfile.zabbixAPIClientOnDiscordBot](https://github.com/n138-kz/Dockerfile.zabbixAPIClientOnDiscordBot)
 
-[![GitHub Extra Pins](https://github-readme-stats.vercel.app/api/pin/?locale=ja&show_owner=true&theme=graywhite&username=n138-kz&repo=Dockerfile.zabbixAPIClientOnDiscordBot)](https://github.com/n138-kz/Dockerfile.zabbixAPIClientOnDiscordBot)
+[![GitHub Extra Pins](https://images-ext-1.discordapp.net/external/0gm6rf8zufn1DOGDfaYYSGnL52hFYQQzAJ56jFwdpQ4/https/opengraph.githubassets.com/191aab8a532d04ca43426802fd45b19ba800379d72ebe1f80419d388d98a39bc/n138-kz/Dockerfile.zabbixAPIClientOnDiscordBot?format=webp)](https://github.com/n138-kz/Dockerfile.zabbixAPIClientOnDiscordBot)
 
 ## Repos Info
 
