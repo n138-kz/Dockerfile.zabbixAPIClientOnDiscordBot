@@ -187,3 +187,37 @@ curl \
 ```
 
 </details>
+
+### 障害一覧
+
+https://www.zabbix.com/documentation/current/jp/manual/api/reference/problem/get
+
+#### コマンド
+
+```sh
+curl \
+  -s \
+  --request POST\
+  --url 'http://'${host}'/zabbix/api_jsonrpc.php'\
+  --header 'Content-Type: application/json-rpc'\
+  --data '{
+    "auth": "2742f24013cfe6b532537df94422357b",
+    "method": "event.get",
+    "id": 1,
+    "params": {
+        "output": "extend"
+    },
+    "sortfield": ["clock"],
+    "sortorder": "DESC",
+    "jsonrpc": "2.0"
+  }' | jq .result[0]
+```
+
+#### 実行結果サンプル
+
+<details>
+
+```json
+```
+
+</details>
