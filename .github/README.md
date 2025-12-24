@@ -60,7 +60,7 @@
 curl \
   -s \
   --request POST \
-  --url 'http://127.0.0.1/zabbix/api_jsonrpc.php' \
+  --url 'http://'${host}'/zabbix/api_jsonrpc.php' \
   --header 'Content-Type: application/json-rpc' \
   --data '{"jsonrpc":"2.0","method":"apiinfo.version","params":{},"id":1}' | jq
 ```
@@ -83,28 +83,13 @@ curl \
 curl \
   -s \
   --request POST \
-  --url 'http://127.0.0.1//zabbix/api_jsonrpc.php' \
+  --url 'http://'${host}'/zabbix/api_jsonrpc.php' \
   --header 'Content-Type: application/json-rpc' \
   --data '{"jsonrpc":"2.0","method":"user.login","params":{"user":"Admin","password":"zabbix"},"id":1}' \
   --insecure | jq -r .result
 ```
 
-#### 実行結果サンプル
-
-```sh
-root@7e17ef2b2656:/home/admin# curl -s --request POST --url 'http://127.0.0.1//zabbix/api_jsonrpc.php' --header 'Content-Type: application/json-rpc' --data '{
-    "jsonrpc":"2.0",
-    "method":"user.login",
-    "params":{
-        "user":"Admin",
-        "password":"zabbix"
-    },"id":1
-}' --insecure | jq -r .result
-2742f24013cfe6b532537df94422357b
-root@7e17ef2b2656:/home/admin#
-```
-
-#### フィルタ無し
+#### 実行結果サンプル / フィルタ無し
 
 ```json
 {
@@ -116,8 +101,15 @@ root@7e17ef2b2656:/home/admin#
 
 ### 登録ホスト一覧
 
+#### コマンド
+
 ```sh
-curl -s -k -d '{
+curl \
+  -s \
+  --request POST \
+  --url 'http://'${host}'/zabbix/api_jsonrpc.php' \
+  --header 'Content-Type: application/json-rpc' \
+  --data '{
     "auth": "2742f24013cfe6b532537df94422357b",
     "method": "host.get",
     "id": 1,
@@ -125,5 +117,7 @@ curl -s -k -d '{
         "output": "extend"
     },
     "jsonrpc": "2.0"
-}' -H "Content-Type: application/json-rpc" http://127.0.0.1/zabbix/api_jsonrpc.php | jq
+}' | jq
 ```
+
+#### 実行結果サンプル / フィルタ無し
