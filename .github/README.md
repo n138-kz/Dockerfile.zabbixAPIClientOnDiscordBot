@@ -46,21 +46,6 @@
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://discord.com)discord.py APIリファレンス](https://discordpy.readthedocs.io/ja/latest/api.html)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://github.com)Dockerfile.zabbixAPIClientOnDiscordBot](https://github.com/n138-kz/Dockerfile.zabbixAPIClientOnDiscordBot/)
 
-## GitHub Repository Initial Setup
-
-1. [Actions secrets and variables/Repository variables](https://github.com/n138-kz/Dockerfile.zabbixAPIClientOnDiscordBot/settings/variables/actions) にて以下を設定
-
-    | Name | Value |
-    |:-|:-|
-    | `DOCKER_CREDENTIAL_USERNAME` | Docker Hubのユーザー名 |
-
-1. [Actions secrets and variables/Repository secrets](https://github.com/n138-kz/Dockerfile.zabbixAPIClientOnDiscordBot/settings/secrets/actions) にて以下を設定
-
-    | Name | Value |
-    |:-|:-|
-    | `DOCKER_CREDENTIAL_PASSWORD` | Docker Hubのパスワード |
-    | `DISCORD_WEBHOOK_URL` | Discord Webhook URL |
-
 ## License
 
 [Copyright (c) 2025 Yuu Komiya (n138), Under MIT License](LICENSE)  
