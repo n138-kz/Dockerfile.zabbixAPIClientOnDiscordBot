@@ -61,7 +61,7 @@ curl \
   --request POST \
   --url 'http://127.0.0.1//zabbix/api_jsonrpc.php' \
   --header 'Content-Type: application/json-rpc' \
-  --data '{"jsonrpc":"2.0","method":"user.login","params":{"user":"Admin","password":"n138admin"},"id":1}' \
+  --data '{"jsonrpc":"2.0","method":"user.login","params":{"user":"Admin","password":"zabbix"},"id":1}' \
   --insecure | jq -r .result
 ```
 
